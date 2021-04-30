@@ -50,8 +50,8 @@ node* newNode(int key)
 int height(node* node)
 {
 	if (node == NULL)
-        return -1;
-    return node->height;
+            return -1;
+        return node->height;
 }
 
 // getBalance function
@@ -72,7 +72,7 @@ void enqueue(node* nodeToEnqueue, queue* Queue)
 		nqn->node = nodeToEnqueue;
 
 		if(Queue->front == NULL) // inserting to an empty queue
-      	{
+      	        {
 			  Queue->front = nqn;
 			  Queue->rear = nqn;
 		}
@@ -104,7 +104,7 @@ node* dequeue(queue* Queue)
 node* rightRotate(node* x)
 {
 //	   x           y
-// y        ->         x
+//     y        ->         x
 //	  z             z
 	node* y = x->left;
 	node* z = y->right;
@@ -113,33 +113,33 @@ node* rightRotate(node* x)
 	x->left = z;
 	y->right = x;
 
-    // update heights for x and y
-    x->height = max(height(x->left), height(x->right)) + 1;
-    y->height = max(height(y->left), height(y->right)) + 1;
+        // update heights for x and y
+        x->height = max(height(x->left), height(x->right)) + 1;
+        y->height = max(height(y->left), height(y->right)) + 1;
 
-    // return the new root
-    return y;
+        // return the new root
+        return y;
 }
 
 // leftRotate function
 node* leftRotate(node* x)
 {
 //	   y           x
-// x        <-         y
+//     x        <-         y
 //	  z             z
 	node* y = x->right;
 	node* z = y->left;
 
 	// rotation
-    x->right = z;
+        x->right = z;
 	y->left = x;
 
-    // update heights for x and y
-    x->height = max(height(x->left), height(x->right)) + 1;
-    y->height = max(height(y->left), height(y->right)) + 1;
+        // update heights for x and y
+        x->height = max(height(x->left), height(x->right)) + 1;
+        y->height = max(height(y->left), height(y->right)) + 1;
 
-    // return the new root
-    return y;
+        // return the new root
+        return y;
 }
 
 // rebalance function
@@ -216,15 +216,15 @@ void printTree(node* root)
 	while (currentLevel->front != NULL) // while there's still nodes in the currentLevel queue
 	{
 		tempNode = dequeue(currentLevel); // dequeue the front of currentLevel and store it in tempNode
-    	printNode(tempNode); // call to print tempNode (avl node)
+    	        printNode(tempNode); // call to print tempNode (avl node)
 		enqueue(tempNode->left, nextLevel); // enqueue tempNode's left child onto nextLevel
-    	enqueue(tempNode->right, nextLevel); // enqueue tempNode's right child onto nextLevel
+    	        enqueue(tempNode->right, nextLevel); // enqueue tempNode's right child onto nextLevel
 
 		if (currentLevel->front == NULL) // if currentLevel is an empty queue
 		{
 			// swap the queues that currentLevel and nextLevel point to
 			swap = currentLevel;
-    		currentLevel = nextLevel;
+    		        currentLevel = nextLevel;
 			nextLevel = swap;
 			outFile << endl;
 		}
