@@ -1,4 +1,4 @@
-/*	John-Michael O'Brien  w1890922
+/*	John-Michael O'Brien
 	AVL Lab
 	Prof. Sabzevary
 	CISP 430
