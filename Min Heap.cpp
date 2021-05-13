@@ -94,10 +94,10 @@ void printLevels()
         cout << "Lvl " << level << ": ";
         int numNodesOnLevel = pow(2, level);  // determines num of possible nodes on ea. level (i.e. 2^0, 2^1, 2^2...)
         while (numNodesOnLevel > 0 && i < heapSize)
-		{
-			cout << heapArr[i++] << " ";
-            numNodesOnLevel--;
-		}
+	{
+		cout << heapArr[i++] << " ";
+            	numNodesOnLevel--;
+	}
         cout << endl;
     }
 }
@@ -122,12 +122,12 @@ int main()
 {
 	ifstream inFile("input.txt");
 	for (int i = 0; i < 10 && inFile.good(); i++)  // only up to 10 items will be inserted into heapArr
-    {
-        int num;
+    	{
+        	int num;
 		inFile >> num;  // get num input from input.txt
 		insert(num);  // insert number into heapArr
-    }
-    inFile.close();  // close input file
+   	}
+    	inFile.close();  // close input file
 	printResults();  // print initial min heap and the min heap after 5 deletes
 	return 0;
 }
