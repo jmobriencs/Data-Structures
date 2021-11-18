@@ -27,7 +27,7 @@ void addNode(node*& head, int data)
 // split function
 void split(node* head, node*& a, node*& b)
 {
-	node* current = NULL;
+    node* current = NULL;
     int listLength = 1; // start at 1 to get length rather than last index
     for(current = head; current->next; current = current->next)
 		listLength++; // add 1 to length of list each iteration
